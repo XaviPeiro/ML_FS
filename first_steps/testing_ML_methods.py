@@ -1,18 +1,6 @@
 from load_libraries import *
-
-# Load dataset
-url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
-names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
-dataset = pandas.read_csv(url, names=names)
-
-# Split-out validation dataset
-array = dataset.values
-X = array[:,0:4]
-Y = array[:,4]
-validation_size = 0.20
-seed = 7
-scoring = "accuracy"
-X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
+from load_dataset import *
+from dataset_split import *
 
 # Spot Check Algorithms
 models = []
